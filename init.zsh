@@ -112,6 +112,7 @@ zimfw() {
     upgrade)
       zsh ${ZIM_HOME}/tools/update.zsh 'https://github.com/zimfw/zimfw.git' ${ZIM_HOME} branch develop ${2}
       ;;
+    apply) ${0} clean ${2} && ${0} update ${2} && ${0} compile ${2} ;;
     *)
       source ${ZIM_HOME}/tools/usage.zsh
       return 1
