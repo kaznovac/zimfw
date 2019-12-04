@@ -17,7 +17,7 @@ else
 fi
 
 # Autoload enabled modules' functions
-() {
+_zimfw_autoload() {
   local zfunction
   local -a zmodules
   zstyle -a ':zim' modules 'zmodules'
@@ -28,9 +28,10 @@ fi
     autoload -Uz ${zfunction}
   done
 }
+_zimfw_autoload
 
 # Source enabled modules' init scripts
-() {
+_zimfw_source_enabled_modules() {
   local zmodule zdir zfile
   local -a zmodules
   zstyle -a ':zim' modules 'zmodules'
@@ -49,6 +50,7 @@ fi
     fi
   done
 }
+_zimfw_source_enabled_modules
 
 _zimfw_compile() {
   setopt LOCAL_OPTIONS EXTENDED_GLOB
